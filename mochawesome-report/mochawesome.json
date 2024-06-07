@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-06-07T12:06:58.048Z",
+    "end": "2024-06-07T12:07:16.217Z",
+    "duration": 18169,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6a22b484-34d6-4f9e-8dff-1e65e71d1010",
+      "title": "",
+      "fullFile": "cypress/e2e/bombay.desktop.favourites.cy.js",
+      "file": "cypress/e2e/bombay.desktop.favourites.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c6d7efc5-4ae5-4783-967c-c7e3f6a096cb",
+          "title": "Favourites functionality check",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "verify that users can add and remove games to/from Favourites",
+              "fullTitle": "Favourites functionality check verify that users can add and remove games to/from Favourites",
+              "timedOut": null,
+              "duration": 18132,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visit the main page\ncy.visit('https://demo.bombay.live/operator/bombaydemo/bombay-live-lobby/fun');\ncy.wait(5000); // wait for the page to load\n// Ensure iframe is loaded\ncy.frameLoaded();\n// Access the iframe content\ncy.iframe().within(() => {\n  // Verify that necessary elements inside the iframe exist\n  cy.get('.category-home').should('be.visible');\n  cy.get('.balance-block').should('be.visible');\n  cy.get('.category-highrollers').should('be.visible');\n  // Add games to Favourites\n  cy.contains('Royal Riches Roulette').parent().then($parent => {\n    console.log($parent.html());\n  });\n  //cy.contains('Royal Riches Roulette').xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div[2]/div/div[1]/span').click()\n  cy.contains('Baruto Baccarat').xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[1]/span').click();\n  cy.contains('Deu Green Roulette').xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div[2]/div/div/span').click();\n  // Verify that added games are visible in the Favourites category\n  cy.get('.category-favourites').click();\n  cy.contains('Royal Riches Roulette').should('be.visible');\n  cy.contains('Baruto Baccarat').should('be.visible');\n  cy.contains('Deu Green Roulette').should('be.visible');\n  //cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[1]').should('exist')\n  //cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[2]').should('exist')\n  //cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[3]').should('exist')\n  // Remove games from Favourites\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div/span').each(($el, index) => {\n    cy.wrap($el).click();\n    cy.wait(1000); // wait for the UI to update\n  });\n  // Verify that the removed games do not exist anymore\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[1]').should('not.exist');\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[2]').should('not.exist');\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[3]').should('not.exist');\n  cy.get('.no-tables-found').contains('Currently no tables added to favourites').should('be.visible');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Royal Riches Roulette' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Royal Riches Roulette' but never did.\n    at Context.eval (webpack://package/./cypress/e2e/bombay.desktop.favourites.cy.js:28:49)",
+                "diff": null
+              },
+              "uuid": "0ede0c16-cc29-46cf-972e-1995ea771d88",
+              "parentUUID": "c6d7efc5-4ae5-4783-967c-c7e3f6a096cb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "0ede0c16-cc29-46cf-972e-1995ea771d88"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18132,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
