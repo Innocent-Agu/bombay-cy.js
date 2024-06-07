@@ -23,7 +23,7 @@ describe('Baccarat lobby betting functionality', ()=> {
 
             // Disable lobby betting and verify that some lobby betting elements no longer exist
             cy.get('.toggle-switch-container.enable-lobby-betting').within(() => {
-                cy.get('.toggle-button').click() // Click on the toggle button
+                cy.get('.toggle-button').click()
               });
             cy.get('.carousel-slider').should('not.exist') 
             cy.get('.score-board-wrapper').should('not.exist')
