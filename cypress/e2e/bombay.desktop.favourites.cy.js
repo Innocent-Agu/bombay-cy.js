@@ -16,9 +16,9 @@ describe('Favourites functionality check', function() {
             cy.get('.category-highrollers').should('be.visible')
 
             // Add games to Favourites
-            cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div[2]/div/div[1]/span').click()
-            cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/span').click()
-            cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div[2]/div/div[1]/span').click()
+            cy.get('.lobby-item-component').contains('.table-name', 'Royal Riches Roulette').parents('.lobby-item-component').find('.star-icon').click({ force: true });
+            cy.get('.lobby-item-component').contains('.table-name', 'Baruto Baccarat').parents('.lobby-item-component').find('.star-icon').click({ force: true });
+            cy.get('.lobby-item-component').contains('.table-name', 'Deu Green Roulette').parents('.lobby-item-component').find('.star-icon').click({ force: true });
             
             // Verify that added games are visible in the Favourites category
             cy.get('.category-favourites').click()
