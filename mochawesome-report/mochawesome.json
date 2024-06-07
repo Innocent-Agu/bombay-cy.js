@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2024-06-07T12:06:58.048Z",
-    "end": "2024-06-07T12:07:16.217Z",
-    "duration": 18169,
+    "failures": 0,
+    "start": "2024-06-07T14:54:17.391Z",
+    "end": "2024-06-07T14:54:29.107Z",
+    "duration": 11716,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "6a22b484-34d6-4f9e-8dff-1e65e71d1010",
+      "uuid": "41307f1a-33ba-4d2b-bca3-cb9309099920",
       "title": "",
       "fullFile": "cypress/e2e/bombay.desktop.favourites.cy.js",
       "file": "cypress/e2e/bombay.desktop.favourites.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c6d7efc5-4ae5-4783-967c-c7e3f6a096cb",
+          "uuid": "f1150abb-2e1c-4e5f-8b8c-0bb13a75760f",
           "title": "Favourites functionality check",
           "fullFile": "",
           "file": "",
@@ -38,33 +38,29 @@
               "title": "verify that users can add and remove games to/from Favourites",
               "fullTitle": "Favourites functionality check verify that users can add and remove games to/from Favourites",
               "timedOut": null,
-              "duration": 18132,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 11662,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "// Visit the main page\ncy.visit('https://demo.bombay.live/operator/bombaydemo/bombay-live-lobby/fun');\ncy.wait(5000); // wait for the page to load\n// Ensure iframe is loaded\ncy.frameLoaded();\n// Access the iframe content\ncy.iframe().within(() => {\n  // Verify that necessary elements inside the iframe exist\n  cy.get('.category-home').should('be.visible');\n  cy.get('.balance-block').should('be.visible');\n  cy.get('.category-highrollers').should('be.visible');\n  // Add games to Favourites\n  cy.contains('Royal Riches Roulette').parent().then($parent => {\n    console.log($parent.html());\n  });\n  //cy.contains('Royal Riches Roulette').xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div[2]/div/div[1]/span').click()\n  cy.contains('Baruto Baccarat').xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[1]/span').click();\n  cy.contains('Deu Green Roulette').xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div[2]/div/div/span').click();\n  // Verify that added games are visible in the Favourites category\n  cy.get('.category-favourites').click();\n  cy.contains('Royal Riches Roulette').should('be.visible');\n  cy.contains('Baruto Baccarat').should('be.visible');\n  cy.contains('Deu Green Roulette').should('be.visible');\n  //cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[1]').should('exist')\n  //cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[2]').should('exist')\n  //cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[3]').should('exist')\n  // Remove games from Favourites\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div/span').each(($el, index) => {\n    cy.wrap($el).click();\n    cy.wait(1000); // wait for the UI to update\n  });\n  // Verify that the removed games do not exist anymore\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[1]').should('not.exist');\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[2]').should('not.exist');\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[3]').should('not.exist');\n  cy.get('.no-tables-found').contains('Currently no tables added to favourites').should('be.visible');\n});",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Royal Riches Roulette' but never did.",
-                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Royal Riches Roulette' but never did.\n    at Context.eval (webpack://package/./cypress/e2e/bombay.desktop.favourites.cy.js:28:49)",
-                "diff": null
-              },
-              "uuid": "0ede0c16-cc29-46cf-972e-1995ea771d88",
-              "parentUUID": "c6d7efc5-4ae5-4783-967c-c7e3f6a096cb",
+              "code": "// Visit the main page\ncy.visit('https://demo.bombay.live/operator/bombaydemo/bombay-live-lobby/fun');\ncy.wait(5000); // wait for the page to load\n// Ensure iframe is loaded\ncy.frameLoaded();\n// Access the iframe content\ncy.iframe().within(() => {\n  // Verify that necessary elements inside the iframe exist\n  cy.get('.category-home').should('be.visible');\n  cy.get('.balance-block').should('be.visible');\n  cy.get('.category-highrollers').should('be.visible');\n  // Add games to Favourites\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div[2]/div/div[1]/span').click();\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/span').click();\n  cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div[2]/div/div[1]/span').click();\n  // Verify that added games are visible in the Favourites category\n  cy.get('.category-favourites').click();\n  cy.get('[class=\"table-name\"]').contains('Royal Riches Roulette').should('be.visible');\n  cy.get('[class=\"table-name\"]').contains('Baruto Baccarat').should('be.visible');\n  cy.get('[class=\"table-name\"]').contains('Deu Green Roulette').should('be.visible');\n  // Remove games from Favourites\n  cy.get('[data-testid=\"FavouriteButton\"]').each(($el, index) => {\n    cy.wrap($el).click();\n    cy.wait(1000); // wait for the UI to update\n  });\n  // Verify that the removed games do not exist anymore\n  cy.get('.category-favourites').click();\n  cy.get('Royal Riches Roulette').should('not.exist');\n  cy.get('Baruto Baccarat').should('not.exist');\n  cy.get('Deu Green Roulette').should('not.exist');\n  cy.get('.no-tables-found').contains('Currently no tables added to favourites').should('be.visible');\n});",
+              "err": {},
+              "uuid": "9a0106e0-3016-4822-8453-28489136863c",
+              "parentUUID": "f1150abb-2e1c-4e5f-8b8c-0bb13a75760f",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "0ede0c16-cc29-46cf-972e-1995ea771d88"
+          "passes": [
+            "9a0106e0-3016-4822-8453-28489136863c"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 18132,
+          "duration": 11662,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

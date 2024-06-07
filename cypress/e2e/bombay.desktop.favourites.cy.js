@@ -16,9 +16,9 @@ describe('Favourites functionality check', function() {
             cy.get('.category-highrollers').should('be.visible')
 
             // Add games to Favourites
-            cy.contains('Royal Riches Roulette').get('div.lobby-item-component.roulette.multiplier-roulette-variation.rrr-001.front-page.custom-bg span.star-icon').click({multiple: true});
-            cy.contains('Baruto Baccarat').get('#gameWrapperElements > div > div.generic-scrollable-container.lobby-component-scrollable-wrapper.default > div.generic-scrollable-container-inner.scrollable-container.scrollable > div > div > div > div.front-page-lists > div:nth-child(2) > div > div.carousel-slider > div > div.lobby-item-component.baccarat.classic-baccarat-variation.table-bb.front-page.custom-bg > span').click({multiple: true})
-            cy.contains('Deu Green Roulette').get('#gameWrapperElements > div > div.generic-scrollable-container.lobby-component-scrollable-wrapper.default > div.generic-scrollable-container-inner.scrollable-container.scrollable > div > div > div > div.front-page-lists > div:nth-child(3) > div > div.carousel-slider > div > div > span').click({multiple: true})
+            cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div[2]/div/div[1]/span').click()
+            cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/span').click()
+            cy.xpath('/html/body/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div[2]/div/div[1]/span').click()
             
             // Verify that added games are visible in the Favourites category
             cy.get('.category-favourites').click()
